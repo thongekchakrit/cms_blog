@@ -2,8 +2,6 @@ import React, { useState, useEffect} from 'react'
 import { getCategories } from '../services';
 import Link from 'next/link';
 
-const categories = [{name: 'React', slug: 'react'}, {name: 'Web Development', slug: 'web-dev'}]
-
 const Header = () => {
     const [categories, setCategories] = useState([]);
 
@@ -24,7 +22,7 @@ const Header = () => {
             </div>
             <div className="hidden md:float-left md:contents">
                 {categories.map((categories) => (
-                    <Link key={categories.slug} href={`/categories/${categories.slug}`}>
+                    <Link key={categories.slug} href={`/category/${categories.slug}`}>
                         <span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">
                             {categories.name}
                         </span>
