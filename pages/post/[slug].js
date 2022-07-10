@@ -4,7 +4,7 @@ import { PostDetail, Categories, PostWidget, Author, Comments, CommentsForm } fr
 import { useRouter } from 'next/router';
 
 const PostDetails = ( { post }) => {
-    const router = useRouter():
+    const router = useRouter();
 
     if(router.isFallback) {
       return <Loader/>
