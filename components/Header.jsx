@@ -11,12 +11,12 @@ const Header = () => {
   }, []);
 
   return (
-    <div className='container mx-auto px-10 mb-8'>
-        <div className='border-b w-full inline-block border-blue-400 py-8'>
+    <div className='mx-auto px-20 mb-8 mt-0  bg-gray-900'> 
+        <div className='w-full inline-block py-4'>
             <div className='md:float-left block'> 
                 <Link href="/">
-                    <span className="cursor-pointer font-bold text-4xl text-white">
-                        GraphCMS
+                    <span className="cursor-pointer font-semibold text-2xl text-white">
+                    💻 Chakrit Coding Blog
                     </span>
                 </Link>
             </div>
@@ -30,7 +30,6 @@ const Header = () => {
                 ))}
             </div> 
         </div>
-    
     </div>
   )
 }
