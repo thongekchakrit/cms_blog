@@ -7,7 +7,7 @@ export default function  Home({ posts }) {
   return (
     <div className="container mx-auto px-10 mb-8"> 
       <Head>
-        <title>Chakrit Programming Blog</title>
+        <title>Chakrit's Coding Room</title>
         <link rel="icon" href="/favicon.png" />
       </Head>
       <FeaturedPosts />
