@@ -2,8 +2,14 @@ import Head from 'next/head'
 import { PostCard, Categories, PostWidget } from '../components';
 import { getPosts } from '../services';
 import { FeaturedPosts } from '../sections';
+import { useRouter } from 'next/router';
 
 export default function  Home({ posts }) {
+  const router = useRouter();
+
+  if(router.isFallback) {
+    return <Loader/>
+  }
   return (
     <div className="container mx-auto px-10 mb-8"> 
       <Head>
