@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { PostCard, Categories, PostWidget } from '../components';
 import { getPosts } from '../services';
 import { FeaturedPosts } from '../sections';
+import { useRouter } from 'next/router';
 
 export default function  Home({ posts }) {
 
@@ -29,11 +30,12 @@ export default function  Home({ posts }) {
   )
 }
 
+// Fetch data at build time
 export async function getStaticProps() {
-  const posts = await getPosts();
-
+  const posts = (await getPosts()) || [];
+  
   return {
-    props: { posts }
-  }
+    props: { posts },
+  };
 }
 

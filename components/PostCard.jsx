@@ -1,14 +1,8 @@
 import React from 'react'
 import moment from 'moment';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 const PostCard = ({ post }) => {
-  const router = useRouter();
-
-  if(router.isFallback) {
-    return <Loader/>
-  }
 
   return (
     <div className='bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8'>
