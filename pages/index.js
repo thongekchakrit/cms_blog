@@ -2,11 +2,25 @@ import Head from 'next/head'
 import { PostCard, Categories, PostWidget } from '../components';
 import { getPosts } from '../services';
 import { FeaturedPosts } from '../sections';
+import Script from 'next/script';
 
 export default function  Home({ posts }) {
 
   return (
+
     <div className="container mx-auto px-10 mb-8"> 
+      <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
+
+      <Script strategy="lazyOnload">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+              });
+          `}
+      </Script>
       <Head>
         <title>Chakrit's Coding Room</title>
         <link rel="icon" href="/favicon.png" />
