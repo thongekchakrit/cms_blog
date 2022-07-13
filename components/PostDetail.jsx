@@ -46,7 +46,7 @@ const PostDetail = ({ post }) => {
         )
       case 'link':
         return (
-          <a href={obj.href} target={obj.openInNewTab}>{obj.children[0].text}</a>
+          <a href={obj.href} target="_blank">{obj.children[0].text}</a>
         )
         case 'image':
         return (
