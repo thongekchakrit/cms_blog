@@ -3,6 +3,16 @@ import moment from 'moment';
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
+
+    if (obj.type == 'paragraph') {
+      for (var i = 0; i < obj.children.length; i++) {
+        if ('type' in obj.children[i] & 'href' in obj.children[i] ) {
+          obj = obj.children[i];
+          type = 'link';
+        }
+      }
+    }
+
     let modifiedText = text;
 
     if (obj) {
@@ -18,13 +28,6 @@ const PostDetail = ({ post }) => {
         modifiedText = (<u key={index}>{text}</u>);
       }
     }
-
-    // if (type === 'code-block') {
-    //   //pass
-    // } else {
-    //   console.log(index, type, modifiedText)
-    // }
-    console.log(obj)
  
     switch (type) {
       case 'heading-three':
@@ -43,7 +46,7 @@ const PostDetail = ({ post }) => {
         )
       case 'link':
         return (
-          <a href={obj.href}>{obj.children}</a>
+          <a href={obj.href} target={obj.openInNewTab}>{obj.children[0].text}</a>
         )
         case 'image':
         return (
