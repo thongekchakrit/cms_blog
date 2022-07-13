@@ -1,7 +1,6 @@
 import React from 'react';
 import moment from 'moment';
 
-
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
@@ -20,6 +19,13 @@ const PostDetail = ({ post }) => {
       }
     }
 
+    // if (type === 'code-block') {
+    //   //pass
+    // } else {
+    //   console.log(index, type, modifiedText)
+    // }
+    console.log(obj)
+ 
     switch (type) {
       case 'heading-three':
         return <h3 key={index} className="text-xl font-semibold">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
@@ -28,15 +34,13 @@ const PostDetail = ({ post }) => {
       case 'heading-four':
         return <h4 key={index} className="text-md font-semibold">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
       case 'code-block':
-        console.log(modifiedText);
-        return (
-          <body> 
-            <pre className='box-language-text'>
-              <code className='language-text'>{modifiedText}</code></pre>
-              <br></br>
-          </body>
-
+        return (<pre className='box-language-text'><code className='language-text'>{modifiedText}</code></pre>
           );
+      case 'undefined':
+        
+        return (
+          null
+        )
       case 'link':
         return (
           <a href={obj.href}>{obj.children}</a>
