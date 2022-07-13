@@ -56,6 +56,7 @@ const PostDetail = ({ post }) => {
             height={obj.height}
             width={obj.width}
             src={obj.src}
+            class="image-center"
           />
         );
       default:
